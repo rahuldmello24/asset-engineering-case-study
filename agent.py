@@ -265,7 +265,14 @@ def assess_scenario(scenario: str) -> AssessmentRun:
                             "Return a corrected complete assessment. "
                             "Copy evidence directly from the original scenario. "
                             "Do not add punctuation or paraphrase excerpts. "
-                            "Keep all policy coverage and follow-up requirements."
+                            "Recheck every finding before returning the result. "
+                            "For EACH finding whose status is "
+                            "insufficient_information, include a follow-up "
+                            "question with the SAME policy_id in "
+                            "follow_up_questions. This includes AI-004 if its "
+                            "logging and monitoring controls are unknown. "
+                            "Preserve all eight findings and ensure each status "
+                            "matches its control_evidence category."
                         ),
                     }
                 )

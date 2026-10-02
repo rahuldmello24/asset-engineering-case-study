@@ -56,6 +56,19 @@ class RiskLevel(str, Enum):
 class Finding(StrictModel):
     policy_id: PolicyId
     status: FindingStatus
+    control_evidence: Literal[
+        "present",
+        "explicitly_absent_or_inadequate",
+        "unknown",
+        "explicitly_not_applicable",
+    ] = Field(
+        description=(
+            "What the scenario explicitly establishes about the required "
+            "control. Risk factors and silence about controls mean unknown. "
+            "Use explicitly_absent_or_inadequate only when the scenario "
+            "directly describes a missing or inadequate control."
+        )
+    )
     evidence_quotes: list[str] = Field(
         description=(
             "Exact excerpts from the submitted scenario. "

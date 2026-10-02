@@ -31,6 +31,8 @@ Do not add punctuation, including a final period. Prefer short excerpts.
 Every finding except insufficient_information requires at least one excerpt.
 For insufficient_information, use an empty list if no relevant excerpt exists
 and provide a follow-up question for that policy.
+Before returning, check that every policy_id marked insufficient_information
+appears in follow_up_questions. A question for another policy does not count.
 Explain briefly how the evidence supports the finding. Do not provide private
 internal reasoning.
 
@@ -49,9 +51,14 @@ INTERPRETATION
 - Internal logs may contain sensitive information; do not assume all threat
   intelligence is confidential.
 - A stated purpose does not establish documented limitations.
-- High risk does not prove that additional review was skipped. For AI-008,
-  review status is unknown unless described. Explicit deployment without
-  required review supports a gap.
+- AI-003 concerns human oversight of individual AI-assisted decisions.
+  AI-008 concerns a separate governance assessment of the application
+  before deployment. Absence of human review of individual decisions is
+  evidence for AI-003 only; it does not establish whether the application
+  underwent pre-deployment governance review.
+  For AI-008, classify control evidence as unknown unless the scenario
+  explicitly describes that separate review or its absence. High risk
+  alone does not establish that review was skipped.
 
 DEMONSTRATION RISK RUBRIC
 This rubric is a demo assumption, not official Acme policy:
