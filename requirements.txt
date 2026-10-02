@@ -2,3 +2,4 @@ streamlit
 pydantic
 python-dotenv
 pytest
+openai
